@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Neighborhood Map</title>
+</head>
+<body>
+	<i id="hamburger" class="material-icons" data-bind="click: toggleMenu, css: {rotated: menuIsOpen()}"">&#xE5D2;</i>
+	<aside id="sidebar" class="panel" data-bind="css: {closed: !menuIsOpen()}">
+		<section id="sidebar__header">
+			<h1>Places</h1>
+			<div id="input-wrap">
+				<i class="material-icons">&#xE8B6;</i>
+				<input id ="location-search" type="text" name="search" placeholder="Filter.." data-bind="value: userInput, valueUpdate: 'afterkeydown'" />
+				<ul id="placeList" data-bind="foreach: filteredPlaces">
+					<li data-bind="text: $data.markerData.title, click: $parent.listClick.bind($data), visible: $data.visible"></li>
+				</ul>
+			</div>
+		</section>
+	</aside>
+	<div id="map"></div>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKZIFguMhiFk36cdolEhaK5eeKSBNfWaY&callback=initMap" onerror="mapLoadError()">
+    </script>
+    <script src="js/knockout-3.4.1.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

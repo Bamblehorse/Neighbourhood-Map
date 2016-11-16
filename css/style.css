@@ -1,0 +1,134 @@
+body {
+	margin: 0;
+}
+
+.panel {
+	position: fixed;
+	background-color: Snow;
+	box-shadow: 0.5vw 0.5vw 0.5vw grey;
+}
+
+#sidebar {
+	z-index: 2;
+	width: 20vw;
+	height: 95vh;
+	opacity: 0.9;
+	transition: transform 800ms;
+}
+
+.closed {
+	transform: translateX(-20vw);
+}
+.rotated {
+	border-radius: 50%;
+	background-color: transparent;
+	transform: scale(0.7) translateX(22vw) translateY(-1vw) rotate(90deg);
+}
+
+#hamburger {
+	font-size: 5vw;
+	background-color: DeepSkyBlue;
+	opacity: 0.7;
+	color: #111;
+	position: fixed;
+	z-index: 3;
+	transition-duration: 600ms;
+	cursor: pointer;
+	border-radius: 0 0 50% 0;
+}
+
+#hamburger:hover {
+	color: snow;
+	opacity: 1;
+}
+
+#sidebar__header h1 {
+	background-color: DeepSkyBlue;
+	height: 10vw;
+	line-height: 10vw;
+	text-align: center;
+	text-shadow: 1px 1px 1px black;
+	color: snow;
+	margin: 0;
+	font-family: Roboto, arial, sans-serif;
+	font-size: 4vw;
+}
+
+#input-wrap {
+	width: 20vw;
+	position: relative;
+	background: snow;
+	overflow: hidden;
+}
+
+.material-icons, #location-search {
+	font-size: 3vw;
+}
+#location-search {
+	display: inline-block;
+	max-width: 70%;
+	height: 5vw;
+  	box-sizing: border-box;
+	position: absolute;
+	border: 0;
+	background-color: transparent;
+}
+
+#placeList {
+	text-align: center;
+	padding: 1vw;
+}
+
+#placeList li {
+	cursor: pointer;
+	list-style-type: none;
+	list-style-position: inside;
+}
+
+#placeList li:hover {
+	background-color: SkyBlue;
+}
+
+#map {
+	width: 100%;
+	height: 100vh;
+	background-color: grey;
+}
+
+@media screen and (max-width : 500px) {
+	#hamburger {
+		font-size: 11vw;
+	}
+
+	.rotated {
+		transform: scale(0.4) translateX(31vw) translateY(-7vw) rotate(90deg);
+	}
+
+		#location-search {
+		height: 7vw;
+	}
+}
+
+@media screen and (min-width : 501px) and (max-width : 768px) {
+	#hamburger {
+		font-size: 9vw;
+	}
+
+	.rotated {
+		transform: scale(0.4) translateX(33vw) translateY(-6vw) rotate(90deg);
+	}
+}
+
+@media screen and (min-width : 768px) and (max-width : 900px) {
+	#hamburger {
+		font-size: 6vw;
+	}
+
+	.rotated {
+		transform: scale(0.4) translateX(39vw) translateY(-4vw) rotate(90deg);
+	}
+
+	#location-search {
+		height: 3vw;
+	}
+}

@@ -38,15 +38,14 @@ function initMap() {
     self.visible = ko.observable(true);
     // Initiate HTTP get request with long and lat data
     self.getGeoData = function(long, lat) {
-      var url = '//api.postcodes.io/postcodes?lon=' + long + '&lat=' + lat + '&limit=1';
+      var url = 'http://api.postcodes.io/postcodes?lon=' + long + '&lat=' + lat + '&limit=1';
       aysncHttpGetRequest(url, self.processResponse);
     };
     // Add api response data to content string
     self.processResponse = function(response) {
       var parsed = JSON.parse(response).result[0],
           apiContent = '<div id="apiContent">' +
-                       '<h3>' + parsed.msoa + ',</h3>' +
-                       '<h2>' + parsed.postcode + '</h2>' +
+                       '<h4>' + parsed.msoa + ', ' + parsed.postcode + '</h4>' +
                        '</div>';
       self.contentString += apiContent;
     };
@@ -166,8 +165,13 @@ function aysncHttpGetRequest(url, callback) {
   var xhr = new XMLHttpRequest();
   var done;
   xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4 && xhr.status == 200)
-      callback(xhr.responseText);
+    if (xhr.readyState == 4)
+      //if all goes well
+      if (xhr.status == 200) {
+        callback(xhr.responseText);
+      } else { // if other than 200
+        alert('Error', xhr.statusText);
+      }
   };
   xhr.open("GET", url, true);
   xhr.send(null);

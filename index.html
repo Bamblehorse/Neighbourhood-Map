@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name=viewport content="width=device-width, initial-scale=1">
 	<title>Neighborhood Map</title>
 </head>
 <body>
@@ -10,10 +11,11 @@
 		<section id="sidebar__header">
 			<h1>Places</h1>
 			<div id="input-wrap">
-				<i class="material-icons">&#xE8B6;</i>
+				<i class="material-icons search-icon">&#xE8B6;</i>
 				<input id ="location-search" type="text" name="search" placeholder="Filter.." data-bind="value: userInput, valueUpdate: 'afterkeydown'" />
 				<ul id="placeList" data-bind="foreach: filteredPlaces">
-					<li data-bind="text: $data.markerData.title, click: $parent.listClick.bind($data), visible: $data.visible"></li>
+					<li class="place" data-bind="text: $data.markerData.title, click: $parent.listClick.bind($data), visible: $data.visible"></li>
+					<hr data-bind="visible: $data.visible">
 				</ul>
 			</div>
 		</section>

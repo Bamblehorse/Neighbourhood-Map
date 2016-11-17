@@ -10,7 +10,7 @@ function initMap() {
     lng: -3.175880
   };
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
+    zoom: 13,
     mapTypeControl: false,
     center: center,
     clickableIcons: true,
@@ -45,13 +45,13 @@ function initMap() {
     self.processResponse = function(response) {
       var parsed = JSON.parse(response).result[0],
           apiContent = '<div id="apiContent">' +
-                       '<p>' + parsed.msoa + ',</p>' +
-                       '<p>' + parsed.postcode + '</p>' +
+                       '<h3>' + parsed.msoa + ',</h3>' +
+                       '<h2>' + parsed.postcode + '</h2>' +
                        '</div>';
       self.contentString += apiContent;
     };
     self.contentString = '<div id="content">' +
-                         '<h4>' + title + '</h4>' +
+                         '<h2>' + title + '</h2>' +
                          '</div>';
     self.infoWindow = new google.maps.InfoWindow({
       content: self.contentString

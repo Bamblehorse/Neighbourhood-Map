@@ -38,7 +38,7 @@ function initMap() {
     self.visible = ko.observable(true);
     // Initiate HTTP get request with long and lat data
     self.getGeoData = function(long, lat) {
-      var url = 'http://api.postcodes.io/postcodes?lon=' + long + '&lat=' + lat + '&limit=1';
+      var url = '//api.postcodes.io/postcodes?lon=' + long + '&lat=' + lat + '&limit=1';
       aysncHttpGetRequest(url, self.processResponse);
     };
     // Add api response data to content string

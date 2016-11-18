@@ -141,7 +141,7 @@ function ViewModel() {
         currentPlace.init();
       }
       if (action === 'filter') {
-        if (!currentIterationMarker.title.toLowerCase().includes(self.currentFilter)) {
+        if (!currentIterationMarker.title.toLowerCase().includes(self.currentFilter.toLowerCase())) {
           currentIterationMarker.setVisible(false);
           currentPlace.visible(false);
           if (currentInfoWindow) {
